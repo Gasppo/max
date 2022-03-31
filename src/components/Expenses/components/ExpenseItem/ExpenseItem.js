@@ -3,9 +3,8 @@ import Card from '../../../Core/Card/Card'
 import ExpenseDate from '../ExpenseDate/ExpenseDate'
 import './ExpenseItem.css'
 
-const ExpenseItem = ({ expense }) => {
+const ExpenseItem = ({ title, amount, date }) => {
 
-    const { title, amount, date } = expense
     const [currTitle, setTitle] = useState(title)
 
     // const handleClick = () => {

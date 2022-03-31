@@ -1,14 +1,16 @@
-import Expenses from "./components/Expenses/Expenses";
 import NewExpense from "./components/Expenses/components/NewExpense/NewExpense";
-import { defaultExpenses } from './utils/defaultExpenses'
-import ExpensesFilter from "./components/Expenses/components/ExpenseFilter/ExpenseFilter";
+import Expenses from "./components/Expenses/Expenses";
+import { defaultExpenses } from './utils/defaultExpenses';
+import React from 'react'
+
 function App() {
 
-  const expenses = defaultExpenses()
+  const dbExpenses = defaultExpenses()
+  const [expenses, setExpenses] = React.useState(dbExpenses)
+
 
   const handleExpenseAdd = (addedExpense) => {
-    console.log('In app.js')
-    console.log(addedExpense)
+    setExpenses(prev => [addedExpense, ...prev])
   }
 
   return (

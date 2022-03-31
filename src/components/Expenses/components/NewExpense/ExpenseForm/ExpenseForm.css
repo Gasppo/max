@@ -24,3 +24,13 @@
   .new-expense__actions {
     text-align: right;
   }
+
+  .new-expense__buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: right;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    text-align: right;
+    padding-top: 1rem;
+  }

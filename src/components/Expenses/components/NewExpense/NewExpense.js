@@ -4,6 +4,8 @@ import ExpenseForm from './ExpenseForm/ExpenseForm'
 
 const NewExpense = (props) => {
 
+    const [openForm, setOpenForm] = React.useState(false)
+
     const saveExpenseDataHandler = (enteredExpenseData) => {
         const expenseData = {
             ...enteredExpenseData,
@@ -12,9 +14,18 @@ const NewExpense = (props) => {
         props.onAddExpense(expenseData)
     }
 
+    const handleFormOpen = () => {
+        setOpenForm(true)
+    }
+
+    const handleCloseForm = () => {
+        setOpenForm(false)
+    }
+
     return (
         <div className='new-expense'>
-            <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+            {openForm && <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} onCloseForm={handleCloseForm} />}
+            {!openForm && <button onClick={handleFormOpen}> Add New Expense</button>}
         </div>
     )
 }
